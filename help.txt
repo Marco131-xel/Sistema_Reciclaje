@@ -1,0 +1,5 @@
+# crear proyecto para react
+npm create vite@latest fronted_SR
+cd fronted_SR
+npm install
+npm run dev
