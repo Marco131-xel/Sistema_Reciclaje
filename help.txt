@@ -3,3 +3,16 @@ npm create vite@latest fronted_SR
 cd fronted_SR
 npm install
 npm run dev
+
+    # LARAVEL
+# para crear controllers
+php artisan make:controller EmpleadoController
+
+# para crear models y migracion
+php artisan make:model Empleado -m
+
+# para compilar tu migraciones
+php artisan migrate
+
+# configuracion cors
+php artisan config:publish cors
