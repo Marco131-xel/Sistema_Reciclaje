@@ -1,0 +1,61 @@
+.register-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-card {
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  max-width: 900px;
+  width: 100%;
+}
+
+.left-side {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.form-control:focus,
+.form-select:focus {
+  box-shadow: none;
+  border-color: var(--primary-color);
+}
+
+.btn-register {
+  background: var(--primary-color);
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-register:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.custom-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.custom-link:hover {
+  color: var(--primary-hover);
+}
+
+.footer-text {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+@media (max-width: 768px) {
+  .left-side {
+    display: none;
+  }
+
+  body {
+    overflow-y: auto;
+  }
+}

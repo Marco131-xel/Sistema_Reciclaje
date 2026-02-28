@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./features/auth/pages/LoginPage";
+import CreateUser from "./features/auth/pages/CreateUser";
 import React from "react";
 
 // componente para proteger rutas
@@ -39,6 +40,7 @@ function App() {
       <Routes>
         {/* ruta publica */}
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<CreateUser/>}/>
 
         {/* ruta protegida */}
         <Route
