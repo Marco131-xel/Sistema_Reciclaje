@@ -17,7 +17,19 @@ const LoginPage = () => {
       const data = await loginRequest(email, password);
 
       localStorage.setItem("token", data.access_token);
-      navigate("/dashboard");
+
+      // guardar rol
+      const role = data.user.roles[0]?.nombre;
+      localStorage.setItem("role", role);
+
+      // direccionar segun rol
+      if (role === "administrador_municipal") {
+        navigate("/admin");
+      } else if (role === "ciudadano") {
+        navigate("/ciudadano");
+      } else {
+        navigate("/dashboard");
+      }
     } catch (err: any) {
       setError("Credenciales incorrectas");
     }

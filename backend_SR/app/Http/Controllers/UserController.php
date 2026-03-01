@@ -90,7 +90,8 @@ class UserController extends Controller {
             ], 401);
         }
 
-        $user = Auth::user();
+        // mandar datos usuario y rol
+        $user = Auth::user()->load('roles');
         $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
