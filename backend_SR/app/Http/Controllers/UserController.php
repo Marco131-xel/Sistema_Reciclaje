@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rol;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,9 +28,18 @@ class UserController extends Controller {
             'password' => 'required|min:6',
         ]);
 
+        // crear usuario
         $user = User::create($request->all());
 
-        return response()->json(['message' => 'usuario creado', 'user' => $user], 201);
+        // buscar rol ciudadano
+        $rolCiudadano = Rol::where('nombre', 'ciudadano')->first();
+
+        if ($rolCiudadano) {
+            // asignar rol
+            $user->roles()->attach($rolCiudadano->id_rol);
+        }
+
+        return response()->json(['message' => 'usuario creado', 'user' => $user->load('roles')], 201);
     }
 
     // mostrar usuario

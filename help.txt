@@ -16,3 +16,15 @@ php artisan migrate
 
 # configuracion cors
 php artisan config:publish cors
+
+# insert de rol para la base de datos
+INSERT IGNORE INTO rol (nombre) VALUES
+('administrador_municipal'),
+('coordinador_rutas'),
+('operador_punto_verde'),
+('ciudadano'),
+('auditor');
+
+#borrar y empezar el contador en 0
+TRUNCATE TABLE usuario_rol;
+TRUNCATE TABLE users;
