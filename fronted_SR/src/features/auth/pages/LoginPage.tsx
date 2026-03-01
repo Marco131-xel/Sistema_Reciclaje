@@ -15,10 +15,13 @@ const LoginPage: React.FC = () => {
     try {
       const data = await loginRequest(email, password);
 
+      // obtener el token
       localStorage.setItem("token", data.access_token);
-
+      // obtener el rol
       const role = data.user.roles[0]?.nombre;
       localStorage.setItem("role", role);
+      // obtener el nombre
+      localStorage.setItem("user", JSON.stringify(data.user));
 
       if (role === "administrador_municipal") {
         navigate("/admin");

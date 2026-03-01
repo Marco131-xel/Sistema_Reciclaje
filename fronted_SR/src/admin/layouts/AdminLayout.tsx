@@ -1,21 +1,32 @@
+import { useState } from "react";
 import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import type { ReactNode } from "react";
+import "../style/admin.css"
 
-interface LayoutProps {
-    children: ReactNode
+interface Props {
+  children: ReactNode;
 }
 
-function AdminLayout({ children }: LayoutProps) {
+function AdminLayout({ children }: Props) {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+
   return (
-    <div className="d-flex flex-column min-vh-100">
-      <Header />
-      <main className="container my-4 flex-grow-1">
-        {children}
-      </main>
+    <div className="admin-layout">
+      <Header toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
+
+      <div className="admin-body">
+        <Sidebar open={sidebarOpen} />
+
+        <main className="admin-content">
+          {children}
+        </main>
+      </div>
+
       <Footer />
     </div>
-  )
+  );
 }
 
 export default AdminLayout;

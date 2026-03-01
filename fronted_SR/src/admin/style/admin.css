@@ -1,0 +1,132 @@
+/* Layout general */
+.admin-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.admin-header {
+  background: #000;
+  height: 60px;
+  color: white;
+  box-shadow: 0 3px 10px rgba(0,0,0,.3);
+}
+
+.btn-menu {
+  background: transparent;
+  border: none;
+  color: #1abc9c;
+  font-size: 1.4rem;
+}
+
+.btn-menu:hover {
+  color: #16a085;
+}
+
+/* SIDEBAR */
+.admin-body {
+  flex: 1;
+  display: flex;
+}
+
+.admin-sidebar {
+  width: 230px;
+  background: #111;
+  color: white;
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+.admin-sidebar.open {
+  width: 230px;
+}
+
+.admin-sidebar:not(.open) {
+  width: 0;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li a {
+  display: block;
+  padding: 14px 20px;
+  color: white;
+  text-decoration: none;
+  border-left: 4px solid transparent;
+  transition: 0.3s;
+}
+
+.sidebar-menu li a:hover {
+  background: #1abc9c;
+  color: black;
+  border-left: 4px solid black;
+}
+
+/* Divider para separar logout */
+.sidebar-divider {
+  height: 1px;
+  background: #333;
+  margin: 10px 0;
+}
+
+/* boton cerrar sesion dentro del sidebar */
+.sidebar-logout {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 14px 20px;
+  color: white;
+  text-align: left;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+  border-left: 4px solid transparent;
+}
+
+.sidebar-logout:hover {
+  background: #e74c3c;
+  color: white;
+  border-left: 4px solid black;
+}
+
+/* CONTENIDO */
+.admin-content {
+  flex: 1;
+  padding: 25px;
+  background: #f5f6fa;
+}
+
+/* FOOTER */
+.admin-footer {
+  background: #000;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* usuario */
+.admin-user {
+  color: #1abc9c;
+  font-weight: bold;
+}
+
+/* botón logout */
+.btn-logout {
+  background: transparent;
+  border: 1px solid #1abc9c;
+  color: #1abc9c;
+  border-radius: 6px;
+  padding: 5px 12px;
+}
+
+.btn-logout:hover {
+  background: #1abc9c;
+  color: black;
+}
