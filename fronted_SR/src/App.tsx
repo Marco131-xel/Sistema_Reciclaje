@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./features/auth/pages/LoginPage";
 import CreateUser from "./features/auth/pages/CreateUser";
 import PrivateRoute from "./components/PrivateRoute";
+import AdminLayout from "./admin/layouts/AdminLayout";
+import Inicio from "./admin/pages/Inicio";
 
 
 // dashboard simple de prueba
@@ -21,20 +23,13 @@ const Dashboard = () => {
 };
 
 // vista administrador
-const AdminPage = () => {
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.href = "/login";
-  };
-
+function AdminPage() {
   return (
-    <div style={{ padding: "20px" }}>
-      <h1>Vista ADMINISTRADOR</h1>
-      <p>Estas autenticado</p>
-      <button onClick={handleLogout}>Cerrar sesion</button>
-    </div>
-  );
-};
+    <AdminLayout>
+      <Inicio />
+    </AdminLayout>
+  )
+}
 
 // vista ciudadano
 const CiudadanoPage = () => {
