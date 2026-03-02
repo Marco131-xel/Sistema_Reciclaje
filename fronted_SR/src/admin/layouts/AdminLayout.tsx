@@ -1,15 +1,11 @@
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
 import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
-import type { ReactNode } from "react";
-import "../style/admin.css"
+import "../style/admin.css";
 
-interface Props {
-  children: ReactNode;
-}
-
-function AdminLayout({ children }: Props) {
+function AdminLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
@@ -20,7 +16,7 @@ function AdminLayout({ children }: Props) {
         <Sidebar open={sidebarOpen} />
 
         <main className="admin-content">
-          {children}
+          <Outlet />
         </main>
       </div>
 

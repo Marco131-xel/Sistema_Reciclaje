@@ -34,12 +34,13 @@
   width: 230px;
   background: #111;
   color: white;
-  transition: 0.3s;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
   overflow: hidden;
 }
 
 .admin-sidebar.open {
-  width: 230px;
+  transform: translateX(0);
 }
 
 .admin-sidebar:not(.open) {
@@ -129,4 +130,72 @@
 .btn-logout:hover {
   background: #1abc9c;
   color: black;
+}
+
+/*-------------- PAGINA INICIO --------------*/
+/* DASHBOARD */
+.admin-dashboard {
+  padding: 20px;
+}
+
+/* Header dashboard */
+.dashboard-header {
+  background: black;
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.3);
+}
+
+.dashboard-header p {
+  color: #1abc9c;
+  margin: 0;
+}
+
+/* Cards */
+.dashboard-card {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  background: #111;
+  color: white;
+  border-radius: 14px;
+  padding: 18px;
+  transition: 0.25s ease;
+  box-shadow: 0 6px 15px rgba(0,0,0,.2);
+}
+
+.dashboard-card:hover {
+  transform: translateY(-6px);
+  background: #1abc9c;
+  color: black;
+}
+
+.dashboard-card h5 {
+  margin: 0;
+  font-weight: bold;
+}
+
+.dashboard-card p {
+  font-size: 0.85rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Icon badge */
+.icon-badge {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: 0.3s;
+}
+
+.dashboard-card:hover .icon-badge {
+  background: rgba(0,0,0,.15);
 }

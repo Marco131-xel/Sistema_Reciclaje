@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 interface Props {
   open: boolean;
@@ -16,33 +16,33 @@ function Sidebar({ open }: Props) {
     <aside className={`admin-sidebar ${open ? "open" : ""}`}>
       <ul className="sidebar-menu">
         <li>
-          <Link to="/admin">
+          <NavLink to="/admin" end>
             <i className="bi bi-house"></i> Inicio
-          </Link>
+          </NavLink>
         </li>
 
         <li>
-          <Link to="/admin/auditar">
+          <NavLink to="/admin/auditar">
             <i className="bi bi-shield-check"></i> Auditar
-          </Link>
+          </NavLink>
         </li>
 
         <li>
-          <Link to="/admin/reportes">
+          <NavLink to="/admin/reportes">
             <i className="bi bi-bar-chart-line"></i> Reportes
-          </Link>
+          </NavLink>
         </li>
 
         <li>
-          <Link to="/admin/configurar">
+          <NavLink to="/admin/configurar">
             <i className="bi bi-gear"></i> Configurar sistema
-          </Link>
+          </NavLink>
         </li>
 
         <li>
-          <Link to="/admin/usuarios">
+          <NavLink to="/admin/usuarios">
             <i className="bi bi-people"></i> Gestionar usuarios
-          </Link>
+          </NavLink>
         </li>
 
         <li className="sidebar-divider"></li>
