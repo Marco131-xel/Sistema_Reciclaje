@@ -11,16 +11,16 @@ class UserController extends Controller {
     
     // Listar usuarios
     public function index() {
-        $users = User::all();
+        $users = User::with('roles')->get();
         return response()->json($users);
     }
 
-    // crear usuario
-    public function create() {
-        //
+    // mostar roles
+    public function rolesPersonal() {
+        return Rol::where('nombre', '!=', 'ciudadano')->get();
     }
 
-    // guardar nuevo usuario
+    // funcion para registrar usuarios ciudadanos
     public function store(Request $request) {
         $request->validate([
             'name' => 'required|string|max:255',
@@ -30,7 +30,6 @@ class UserController extends Controller {
 
         // crear usuario
         $user = User::create($request->all());
-
         // buscar rol ciudadano
         $rolCiudadano = Rol::where('nombre', 'ciudadano')->first();
 
@@ -42,15 +41,62 @@ class UserController extends Controller {
         return response()->json(['message' => 'usuario creado', 'user' => $user->load('roles')], 201);
     }
 
+    // funcion para agregar usuarios (personal)
+    public function storePersonal(Request $request) {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6',
+            'rol_id' => 'required|exists:rol,id_rol',
+        ]);
+
+        // validar que no sea ciudadano
+        $rol = Rol::findOrFail($request->rol_id);
+
+        if ($rol->nombre === 'ciudadano') {
+            return response()->json([
+                'message' => 'No se puede asignar rol ciudadano en personal'
+            ], 400);
+        }
+
+        // crear usuario
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
+
+        // asignar rol
+        $user->roles()->attach($request->rol_id);
+
+        return response()->json([
+            'message' => 'usuario personal creado',
+            'user' => $user->load('roles')
+        ], 201);
+    }
+
+    // funcion para mostrar usuarios ciudadanos
+    public function ciudadanos() {
+        $users = User::whereHas('roles', function ($query) {
+            $query->where('nombre', 'ciudadano');
+        })->with('roles')->get();
+
+        return response()->json($users);
+    }
+
+    // funcion para mostrar personal
+    public function personal() {
+        $users = User::whereHas('roles', function ($query) {
+            $query->where('nombre', '!=', 'ciudadano');
+        })->with('roles')->get();
+
+        return response()->json($users);
+    }
+
     // mostrar usuario
     public function show(string $id) {
         $user = User::findOrFail($id);
         return response()->json($user);
-    }
-
-    // editar un usuario
-    public function edit(string $id) {
-        //
     }
 
     // actualizar el usuario

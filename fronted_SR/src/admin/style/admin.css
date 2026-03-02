@@ -199,3 +199,172 @@
 .dashboard-card:hover .icon-badge {
   background: rgba(0,0,0,.15);
 }
+
+
+/* ===== CONTENEDOR DE TABLA ===== */
+.table-container {
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+  overflow-x: auto;
+}
+
+/* ===== TABLA ===== */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+/* ===== ENCABEZADO ===== */
+.admin-table thead {
+  background: #000;
+  color: #1abc9c;
+}
+
+.admin-table th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ===== CUERPO ===== */
+.admin-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+/* ===== HOVER ===== */
+.admin-table tbody tr:hover {
+  background: rgba(26,188,156,0.08);
+}
+
+/* ===== BOTONES ===== */
+.btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-right: 5px;
+  transition: 0.3s;
+}
+
+/* Ver */
+.btn-view {
+  background: #3498db;
+  color: white;
+}
+.btn-view:hover {
+  background: #2980b9;
+}
+
+/* Crear */
+.btn-create {
+  background: #1abc9c;
+  color: black;
+  font-weight: 600;
+}
+.btn-create:hover {
+  background: #16a085;
+}
+
+/* Editar */
+.btn-edit {
+  background: #f39c12;
+  color: black;
+}
+.btn-edit:hover {
+  background: #e67e22;
+}
+
+/* Eliminar */
+.btn-delete {
+  background: #e74c3c;
+  color: white;
+}
+.btn-delete:hover {
+  background: #c0392b;
+}
+
+/* ===== GRUPO DE BOTONES ===== */
+.actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* ===== SWITCH CIUDADANOS / PERSONAL ===== */
+.tab-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tab-buttons button {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1px solid #1abc9c;
+  background: transparent;
+  color: #1abc9c;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.tab-buttons button:hover {
+  background: #1abc9c;
+  color: black;
+}
+
+.tab-buttons .active {
+  background: #1abc9c;
+  color: black;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .admin-table {
+    font-size: 0.8rem;
+  }
+}
+
+/* MODAL*/
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 350px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form input,
+.form select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
