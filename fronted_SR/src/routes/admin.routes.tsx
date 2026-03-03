@@ -7,6 +7,9 @@ import Usuarios from "../admin/pages/Usuarios";
 import Auditar from "../admin/pages/Auditar";
 import Reportes from "../admin/pages/Reportes";
 import Configurar from "../admin/pages/Configurar";
+import CrearPersonal from "../admin/pages/CrearPersonal";
+import EditarUsuario from "../admin/pages/EditarPersonal";
+import VerUsuario from "../admin/pages/VerUsuario";
 
 export const AdminRoutes = () => (
     <Route path="/admin" element={
@@ -19,5 +22,8 @@ export const AdminRoutes = () => (
         <Route path="reportes" element={<Reportes />} />
         <Route path="configurar" element={<Configurar />} />
         <Route path="usuarios" element={<Usuarios />} />
+        <Route path="usuarios/crear" element={<CrearPersonal />} />
+        <Route path="usuarios/editar/:id" element={<EditarUsuario />} />
+        <Route path="usuarios/ver/:id" element={<VerUsuario />} />
     </Route>
 )

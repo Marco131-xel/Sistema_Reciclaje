@@ -17,7 +17,7 @@ class UserController extends Controller {
 
     // mostar roles
     public function rolesPersonal() {
-        return Rol::where('nombre', '!=', 'ciudadano')->get();
+        return Rol::whereNotIn('nombre', ['ciudadano', 'administrador_municipal'])->get();
     }
 
     // funcion para registrar usuarios ciudadanos
@@ -95,24 +95,40 @@ class UserController extends Controller {
 
     // mostrar usuario
     public function show(string $id) {
-        $user = User::findOrFail($id);
+        $user = User::with('roles')->findOrFail($id);
         return response()->json($user);
     }
 
     // actualizar el usuario
     public function update(Request $request, string $id) {
-        $user = User::findOrFail($id);
+        $user = User::with('roles')->findOrFail($id);
 
         $request->validate([
             'name' => 'sometimes|required|string|max:255',
             'email' => 'sometimes|required|email|unique:users,email,' . $user->id,
-            'password' => 'sometimes|required|min:6',
+            'password' => 'sometimes|nullable|min:6',
+            'rol_id' => 'sometimes|exists:rol,id_rol'
         ]);
 
-        $user->update($request->all());
+        // actualizar datos basicos
+        $user->name = $request->name ?? $user->name;
+        $user->email = $request->email ?? $user->email;
+
+        if ($request->filled('password')) {
+            $user->password = bcrypt($request->password);
+        }
+
+        $user->save();
+
+        // actualizar rol si viene
+        if ($request->has('rol_id')) {
+            $user->roles()->sync([$request->rol_id]);
+        }
 
         return response()->json([
-            'message' => 'usuario actualizado', 'user' => $user]);
+            'message' => 'usuario actualizado',
+            'user' => $user->load('roles')
+        ]);
     }
 
     // eliminar un usuario

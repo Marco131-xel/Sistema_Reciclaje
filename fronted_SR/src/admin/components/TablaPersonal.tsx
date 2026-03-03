@@ -45,7 +45,7 @@ const TablaPersonal: React.FC<Props> = ({
                     <i className="bi bi-eye"></i> Ver
                   </button>
                   <button className="btn btn-edit" onClick={() => onEditar(user)}>
-                    <i className="bi bi-trash3-fill"></i> Editar
+                    <i className="bi bi-pencil-fill"></i> Editar
                   </button>
                   <button className="btn btn-delete" onClick={() => onEliminar(user.id)}>
                     <i className="bi bi-trash3-fill"></i> Eliminar
