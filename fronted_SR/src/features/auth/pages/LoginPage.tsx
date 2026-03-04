@@ -25,6 +25,8 @@ const LoginPage: React.FC = () => {
 
       if (role === "administrador_municipal") {
         navigate("/admin");
+      } else if (role === "coordinador_rutas") {
+        navigate("/coord");
       } else if (role === "ciudadano") {
         navigate("/ciudadano");
       } else {

@@ -1,0 +1,119 @@
+/* ---- Layout general ------ */
+.coord-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ----- HEADER ------ */
+.coord-header {
+  background: #051F20;
+  height: 60px;
+  color: white;
+  box-shadow: 0 3px 10px rgba(5,31,32,.3);
+}
+
+.btn-menu-coord {
+  background: transparent;
+  border: none;
+  color: #8CB79B;
+  font-size: 1.4rem;
+}
+
+.btn-menu-coord:hover {
+  color: #2f7161;
+}
+
+/* ------ SIDEBAR ------ */
+.coord-body {
+  flex: 1;
+  display: flex;
+}
+
+.coord-sidebar {
+  width: 230px;
+  background: #051F20;
+  color: white;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+.coord-sidebar.open {
+  transform: translateX(0);
+}
+
+.coord-sidebar:not(.open) {
+  width: 0;
+}
+
+.sidebar-menu-coord {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu-coord li a {
+  display: block;
+  padding: 14px 20px;
+  color: white;
+  text-decoration: none;
+  border-left: 4px solid transparent;
+  transition: 0.3s;
+}
+
+.sidebar-menu-coord li a:hover {
+  background: #8CB79B;
+  color: black;
+  border-left: 4px solid #051F20;
+}
+
+/* Divider para separar logout */
+.sidebar-divider-coord {
+  height: 1px;
+  background: #333;
+  margin: 10px 0;
+}
+
+/* boton cerrar sesion dentro del sidebar */
+.sidebar-logout-coord {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 14px 20px;
+  color: white;
+  text-align: left;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+  border-left: 4px solid transparent;
+}
+
+.sidebar-logout-coord:hover {
+  background: #e74c3c;
+  color: white;
+  border-left: 4px solid black;
+}
+
+/* CONTENIDO */
+.coord-content {
+  flex: 1;
+  padding: 25px;
+  background: #f5f6fa;
+}
+
+/* FOOTER */
+.coord-footer {
+  background: #051F20;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* usuario */
+.coord-user {
+  color: #8CB79B;
+  font-weight: bold;
+}
