@@ -125,6 +125,7 @@
   font-weight: bold;
 }
 
+/* ---------- RUTAS -----------*/
 .ruta-header h1 {
   font-size: 1.6rem;
   color: #051F20;
@@ -337,7 +338,7 @@ input:focus, select:focus {
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   transition: 0.2s;
 
-  z-index: 1000;   /* 🔥 esto faltaba */
+  z-index: 1000;
 }
 
 .btn-icon-limpiar:hover {
@@ -345,3 +346,110 @@ input:focus, select:focus {
   color: white;
   transform: scale(1.05);
 }
+
+/* camiones */
+.camiones-container{
+  background:#051F20;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.camiones-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.camiones-header h2{
+  color:white;
+}
+
+.btn-crear{
+  background:#8CB79B;
+  border:none;
+  padding:10px 16px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.btn-crear:hover{
+  background:#2f7161;
+  color:white;
+}
+
+/* TABLA */
+.tabla-container{
+  overflow-x:auto;
+}
+
+.tabla-camiones{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.tabla-camiones thead{
+  background:#2f7161;
+  color:white;
+}
+
+.tabla-camiones th,
+.tabla-camiones td{
+  padding:12px;
+  text-align:center;
+  border-bottom:1px solid #051F20;
+}
+
+.tabla-camiones tbody td{
+  background-color:white;
+}
+
+/* HOVER FILA */
+.tabla-camiones tbody tr:hover{
+  background:#8CB79B;
+}
+
+/* BOTONES */
+
+.acciones{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+}
+
+.btn-ver{
+  background:#3498db;
+  border:none;
+  padding:6px 10px;
+  color:white;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.btn-editar{
+  background:#f1c40f;
+  border:none;
+  padding:6px 10px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.btn-eliminar{
+  background:#e74c3c;
+  border:none;
+  padding:6px 10px;
+  color:white;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.btn-editar:hover{
+  background:#d4ac0d;
+}
+
+.btn-eliminar:hover{
+  background:#c0392b;
+}
+

@@ -1,0 +1,219 @@
+/* CONTENEDOR GENERAL */
+
+.camion-crear-page{
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* TARJETA FORMULARIO */
+
+.camion-crear-container{
+  background:#051F20;
+  padding:35px;
+  border-radius:12px;
+  width:420px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.1);
+  border-top:6px solid #051F20;
+}
+
+/* TITULO */
+
+.camion-crear-title{
+  margin-bottom:25px;
+  color:white;
+  font-weight:bold;
+}
+
+/* FORMULARIO */
+
+.camion-crear-form{
+  width:100%;
+}
+
+/* GRUPOS */
+
+.camion-crear-group{
+  margin-bottom:16px;
+  display:flex;
+  flex-direction:column;
+}
+
+.camion-crear-group label{
+  font-weight:600;
+  margin-bottom:6px;
+  color: white;
+}
+
+/* INPUTS */
+
+.camion-crear-input,
+.camion-crear-select{
+    color: white;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  font-size:14px;
+}
+
+.camion-crear-input:focus,
+.camion-crear-select:focus{
+  outline:none;
+  border:1px solid #8CB79B;
+  box-shadow:0 0 0 2px rgba(140,183,155,0.2);
+}
+
+/* BOTONES */
+
+.camion-crear-buttons{
+  display:flex;
+  justify-content:space-between;
+  margin-top:25px;
+}
+
+/* BOTON GUARDAR */
+
+.camion-crear-btn-guardar{
+  background:#8CB79B;
+  border:none;
+  padding:10px 20px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:bold;
+  color:#051F20;
+  width:60%;
+}
+
+.camion-crear-btn-guardar:hover{
+  background:#2f7161;
+  color:white;
+}
+
+/* BOTON CANCELAR */
+
+.camion-crear-btn-cancelar{
+  background:#e74c3c;
+  border:none;
+  padding:10px 20px;
+  border-radius:6px;
+  cursor:pointer;
+  color:white;
+  width:35%;
+}
+
+.camion-crear-btn-cancelar:hover{
+  background:#c0392b;
+}
+
+/* ------ EDITAR CAMIONES --------- */
+.editcam-container {
+  padding: 30px;
+  background: #f4f7fb;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ===== CAJA DEL FORM ===== */
+.editcam-box {
+  background: #051F20;
+  padding: 30px;
+  border-radius: 10px;
+  width: 500px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* ===== TITULO ===== */
+.editcam-title {
+  font-size: 24px;
+  margin-bottom: 25px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ===== FORM ===== */
+.editcam-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ===== GRUPOS ===== */
+.editcam-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* LABEL */
+.editcam-label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: white;
+}
+
+/* INPUT */
+.editcam-input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: all 0.2s;
+}
+
+.editcam-input:focus {
+  border-color: #0B8E8E;
+  outline: none;
+  box-shadow: 0 0 5px rgba(11,142,142,0.3);
+}
+
+/* SELECT */
+.editcam-select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.editcam-select:focus {
+  border-color: #0B8E8E;
+  outline: none;
+}
+
+/* ===== BOTONES ===== */
+.editcam-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+/* GUARDAR */
+.editcam-btn-save {
+  background: #2f7161;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.editcam-btn-save:hover {
+  background: #569383;
+}
+
+/* CANCELAR */
+.editcam-btn-cancel {
+  background: #ccc;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.editcam-btn-cancel:hover {
+  background: #b5b5b5;
+}
