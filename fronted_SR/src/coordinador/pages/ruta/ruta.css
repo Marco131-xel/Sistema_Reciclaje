@@ -1,0 +1,73 @@
+/*----- RUTAS ---- */
+.rutas-container {
+    background: #051F20;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.rutas-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.rutas-header h2{
+    color: white;
+}
+
+.btn-crear{
+  background:#8CB79B;
+  border:none;
+  padding:10px 16px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.btn-crear:hover{
+  background:#2f7161;
+  color:white;
+}
+
+
+.ruta-crear-btn-cancelar{
+  background:#e74c3c;
+  border:none;
+  padding:10px 20px;
+  border-radius:6px;
+  cursor:pointer;
+  color:white;
+  width:35%;
+}
+
+.ruta-crear-btn-cancelar:hover{
+  background:#c0392b;
+}
+
+/*----- TABLA RUTAS ---*/
+.tabla-container{
+  overflow-x:auto;
+}
+
+.tabla-rutas {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-rutas thead{
+  background:#2f7161;
+  color:white;
+}
+
+.tabla-rutas th,
+.tabla-rutas td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #051F20;
+}
+
+.tabla-rutas tbody td{
+  background-color:white;
+}
