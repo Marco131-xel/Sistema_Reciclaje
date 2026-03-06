@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import MapView from "../../../components/MapView";
 import { calcularDistancia } from "../../../types/distancia";
+import api from "../../../services/api";
+import Swal from "sweetalert2";
 
 const diasSemana = [
   "Lunes",
@@ -13,8 +15,18 @@ const diasSemana = [
   "Domingo"
 ];
 
+interface Zona {
+  id_zona: number;
+  nombre: string;
+  tipo: string;
+  densidad_poblacional: number;
+}
+
 export default function Ruta() { 
+
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [zonas, setZonas] = useState<Zona[]>([]);
   const [form, setForm] = useState({
     nombre: "",
     zona: "",
@@ -49,29 +61,6 @@ export default function Ruta() {
         form.horaFin <= form.horaInicio
     );
 
-  const handleGuardar = () => {
-    if (
-      !form.nombre ||
-      !form.zona ||
-      horarioInvalido ||
-      !form.inicio_lat ||
-      !form.inicio_lng ||
-      !form.fin_lat ||
-      !form.fin_lng
-    ) {
-      alert("Completa todos los campos obligatorios");
-      return;
-    }
-
-    const horario = `${form.horaInicio} - ${form.horaFin}`;
-
-    console.log({
-      ...form,
-      horario
-    });
-
-    alert("Ruta guardada correctamente");
-  };
   // limpiar coordenadas
   const limpiarCoordenadas = () => {
     setForm(f => ({
@@ -85,7 +74,7 @@ export default function Ruta() {
   };
   // calcular distancia manual
   useEffect(() => {
-
+    cargarZonas();
     if (
       form.inicio_lat &&
       form.inicio_lng &&
@@ -146,6 +135,81 @@ export default function Ruta() {
 
     }
 
+  };
+
+  const cargarZonas = async () => {
+    try {
+      const res = await api.get("zonas");
+      setZonas(res.data); 
+    } catch (error) {
+      console.error("Error cargando Zonas", error);
+      Swal.fire({
+        title: "Error",
+        text: "No se pudieron cargar las zonas.",
+        icon: "error",
+        confirmButtonColor: "#e74c3c",
+        background: "#111",
+        color: "#fff"
+      });
+    }
+  }
+
+  const guardarRuta = async () => {
+    if (
+      !form.nombre ||
+      !form.zona ||
+      !form.inicio_lat ||
+      !form.inicio_lng ||
+      !form.fin_lat ||
+      !form.fin_lng
+    ) {
+      Swal.fire("Error","Completa todos los campos obligatorios","error");
+      return;
+    }
+
+    const datos = {
+      nombre: form.nombre,
+      inicio_lat: form.inicio_lat,
+      inicio_lon: form.inicio_lng,
+      fin_lat: form.fin_lat,
+      fin_lon: form.fin_lng,
+      distancia_km: form.distancia_km,
+      tipo_residuo: form.tipo_residuo,
+      id_zona: form.zona,
+      dias_recoleccion: form.dias.join(","),
+      horario: `${form.horaInicio}-${form.horaFin}`
+    };
+
+    try {
+
+      setLoading(true);
+
+      await api.post("/rutas", datos);
+
+      await Swal.fire({
+        title: "Ruta creada",
+        text: "La ruta fue registrada correctamente",
+        icon: "success",
+        confirmButtonColor: "#1abc9c",
+        background: "#051F20",
+        color: "#fff"
+      });
+
+      navigate("/coord/rutas");
+
+    } catch (error:any) {
+
+      console.error(error);
+
+      Swal.fire({
+        title: "Error",
+        text: error?.response?.data?.message || "No se pudo crear la ruta",
+        icon: "error"
+      });
+
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -234,8 +298,11 @@ export default function Ruta() {
                     onChange={e => set("zona", e.target.value)}
                   >
                     <option value="">Seleccionar...</option>
-                    <option>Zona Norte</option>
-                    <option>Zona Sur</option>
+                    {zonas.map((zona) =>(
+                      <option key={zona.id_zona} value={zona.id_zona}>
+                        {zona.nombre} {zona.tipo} {zona.densidad_poblacional}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
@@ -308,10 +375,10 @@ export default function Ruta() {
 
               <button
                 className="btn-guardar"
-                onClick={handleGuardar}
-                disabled={horarioInvalido}
+                onClick={guardarRuta}
+                disabled={horarioInvalido || loading}
               >
-                Guardar Ruta
+                {loading ? "Guardando..." : "Guardar Ruta"}
               </button>
 
             </div>
