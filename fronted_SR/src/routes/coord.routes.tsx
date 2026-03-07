@@ -11,6 +11,7 @@ import Monitoreo from "../coordinador/pages/Monitoreo";
 import Reportes from "../coordinador/pages/Reportes";
 import Rutas from "../coordinador/pages/Rutas";
 import CreateRuta from "../coordinador/pages/ruta/create"
+import VerRuta from "../coordinador/pages/ruta/show"
 
 
 export const CoordRoutes = () => (
@@ -22,6 +23,7 @@ export const CoordRoutes = () => (
         <Route index element={<InicioCoord />} />
         <Route path="rutas" element={<Rutas />} />
         <Route path="rutas/crear" element={<CreateRuta />} />
+        <Route path="rutas/ver/:id" element={<VerRuta />} />
         <Route path="camiones" element={<Camiones />} />
         <Route path="camiones/crear" element={<CrearCamion />} />
         <Route path="camiones/editar/:id" element={<EditarCamion />} />

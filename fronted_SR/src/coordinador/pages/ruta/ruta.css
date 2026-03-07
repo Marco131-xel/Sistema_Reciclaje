@@ -71,3 +71,97 @@
 .tabla-rutas tbody td{
   background-color:white;
 }
+
+/* ----------- EDITAR ----------*/
+/* CONTENEDOR GENERAL */
+.content {
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+/* TARJETA PRINCIPAL */
+.card {
+    width: 800px;
+    background: #2f7161;
+    border-radius: 10px;
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.15);
+    overflow: hidden;
+    border: 1px solid #e5e5e5;
+}
+
+/* HEADER */
+.header {
+    background: #051F20;
+    color: white;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.header .id {
+    background: #2f7161;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* BODY */
+.body {
+    padding: 25px;
+}
+
+/* FILAS DE INFORMACION */
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.row:last-child {
+    border-bottom: none;
+}
+
+/* ETIQUETA */
+.label {
+    font-weight: 600;
+    color: white;
+}
+
+/* VALOR */
+.value {
+    color: white;
+}
+
+/* FOOTER */
+.foot {
+    padding: 20px 25px;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #eee;
+}
+
+/* BOTON */
+.boton {
+    background: #051F20;
+    border: none;
+    color: white;
+    padding: 10px 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.boton:hover {
+    background: #8CB79B;
+    color: black;
+}
