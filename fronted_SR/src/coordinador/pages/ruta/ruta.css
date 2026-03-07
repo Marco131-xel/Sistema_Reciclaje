@@ -72,26 +72,30 @@
   background-color:white;
 }
 
-/* ----------- EDITAR ----------*/
+/* ----------- SHOW RUTA - ESTILOS ÚNICOS ----------*/
+
 /* CONTENEDOR GENERAL */
-.content {
+.show-content {
     padding: 30px;
     display: flex;
     justify-content: center;
+    background: #f5f5f5;
+    min-height: 100vh;
 }
 
 /* TARJETA PRINCIPAL */
-.card {
-    width: 800px;
+.show-card {
+    width: 1200px;
+    max-width: 100%;
     background: #2f7161;
-    border-radius: 10px;
-    box-shadow: 0px 6px 18px rgba(0,0,0,0.15);
+    border-radius: 12px;
+    box-shadow: 0px 8px 24px rgba(0,0,0,0.15);
     overflow: hidden;
     border: 1px solid #e5e5e5;
 }
 
 /* HEADER */
-.header {
+.show-header {
     background: #051F20;
     color: white;
     padding: 20px 25px;
@@ -100,13 +104,13 @@
     align-items: center;
 }
 
-.header h2 {
+.show-header h2 {
     margin: 0;
     font-size: 22px;
     font-weight: 600;
 }
 
-.header .id {
+.show-header .show-id {
     background: #2f7161;
     padding: 5px 12px;
     border-radius: 6px;
@@ -114,54 +118,198 @@
 }
 
 /* BODY */
-.body {
+.show-body {
     padding: 25px;
 }
 
-/* FILAS DE INFORMACION */
-.row {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 0;
-    border-bottom: 1px solid #f0f0f0;
+/* LAYOUT DE DOS COLUMNAS */
+.show-two-column-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 25px;
+    min-height: 500px;
 }
 
-.row:last-child {
+/* COLUMNA DE DATOS */
+.show-data-column {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    overflow-y: auto;
+    max-height: 600px;
+}
+
+/* FILAS DE INFORMACION */
+.show-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.2s;
+}
+
+.show-row:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.show-row:last-child {
     border-bottom: none;
 }
 
 /* ETIQUETA */
-.label {
+.show-label {
     font-weight: 600;
     color: white;
+    font-size: 14px;
+    opacity: 0.9;
 }
 
 /* VALOR */
-.value {
+.show-value {
     color: white;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: right;
+    max-width: 60%;
+    word-break: break-word;
+}
+
+/* COLUMNA DEL MAPA */
+.show-map-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.show-map-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 15px;
+}
+
+.show-map-wrapper {
+    background: #f0f4f0;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    height: 400px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Información adicional del mapa */
+.show-map-info {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.show-map-info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.show-map-info-label {
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.show-map-info-value {
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    background: #051F20;
+    padding: 4px 12px;
+    border-radius: 6px;
 }
 
 /* FOOTER */
-.foot {
+.show-foot {
     padding: 20px 25px;
     display: flex;
     justify-content: flex-end;
-    border-top: 1px solid #eee;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.05);
 }
 
 /* BOTON */
-.boton {
+.show-boton {
     background: #051F20;
     border: none;
     color: white;
-    padding: 10px 22px;
-    border-radius: 6px;
+    padding: 12px 28px;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: 500;
-    transition: 0.3s;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
 }
 
-.boton:hover {
+.show-boton:hover {
     background: #8CB79B;
-    color: black;
+    color: #051F20;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Scroll personalizado para la columna de datos */
+.show-data-column::-webkit-scrollbar {
+    width: 6px;
+}
+
+.show-data-column::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.show-data-column::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.show-data-column::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .show-content {
+        padding: 15px;
+    }
+    
+    .show-two-column-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .show-map-wrapper {
+        height: 350px;
+    }
+    
+    .show-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .show-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .show-value {
+        text-align: left;
+        max-width: 100%;
+    }
 }
