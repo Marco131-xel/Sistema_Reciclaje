@@ -114,7 +114,7 @@ const Show: React.FC = () => {
                 </div>
 
                 <div className="show-foot">
-                    <button className="show-boton" onClick={() => navigate("/coord/rutas")}>Volver</button>
+                    <button className="show-boton" onClick={() => navigate(-1)}>Volver</button>
                 </div>
             </div>
         </div>

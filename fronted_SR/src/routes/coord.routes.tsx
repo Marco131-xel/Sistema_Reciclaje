@@ -8,6 +8,7 @@ import Camiones from "../coordinador/pages/Camiones";
 import CrearCamion from "../coordinador/pages/camion/create";
 import EditarCamion from "../coordinador/pages/camion/edit";
 import AsigCamion from "../coordinador/pages/camion/assign";
+import EditAsigCam from "../coordinador/pages/camion/ediAsig";
 // incidencias
 import Incidencias from "../coordinador/pages/Incidencias";
 import Monitoreo from "../coordinador/pages/Monitoreo";
@@ -30,6 +31,7 @@ export const CoordRoutes = () => (
         <Route path="camiones" element={<Camiones />} />
         <Route path="camiones/crear" element={<CrearCamion />} />
         <Route path="camiones/editar/:id" element={<EditarCamion />} />
+        <Route path="camiones/editAsig/:id" element={<EditAsigCam />} />
         <Route path="camiones/asignar" element={<AsigCamion />} />
         <Route path="monitoreo" element={<Monitoreo />} />
         <Route path="incidencias" element={<Incidencias />} />
