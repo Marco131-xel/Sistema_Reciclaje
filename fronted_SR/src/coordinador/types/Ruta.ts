@@ -24,3 +24,18 @@ export interface Coordenada {
   orden: number;
   ruta: Ruta;
 }
+
+export interface Camion {
+  id_camion: number;
+  placa: string;
+  capacidad_ton: number;
+  estado: string;
+  conductor: string;
+}
+
+export interface Asig_Camion {
+  id_asignacion: number;
+  fecha: string;
+  camion: Camion;
+  ruta: Ruta;
+}

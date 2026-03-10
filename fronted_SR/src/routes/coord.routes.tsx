@@ -3,9 +3,12 @@ import PrivateRoute from "../components/PrivateRoute";
 // funcionalidades del coordinador
 import CoordLayout from "../coordinador/layouts/CoordLayout";
 import InicioCoord from "../coordinador/pages/InicioCoord";
+// camiones
 import Camiones from "../coordinador/pages/Camiones";
 import CrearCamion from "../coordinador/pages/camion/create";
 import EditarCamion from "../coordinador/pages/camion/edit";
+import AsigCamion from "../coordinador/pages/camion/assign";
+// incidencias
 import Incidencias from "../coordinador/pages/Incidencias";
 import Monitoreo from "../coordinador/pages/Monitoreo";
 import Reportes from "../coordinador/pages/Reportes";
@@ -27,6 +30,7 @@ export const CoordRoutes = () => (
         <Route path="camiones" element={<Camiones />} />
         <Route path="camiones/crear" element={<CrearCamion />} />
         <Route path="camiones/editar/:id" element={<EditarCamion />} />
+        <Route path="camiones/asignar" element={<AsigCamion />} />
         <Route path="monitoreo" element={<Monitoreo />} />
         <Route path="incidencias" element={<Incidencias />} />
         <Route path="reportes" element={<Reportes />} />

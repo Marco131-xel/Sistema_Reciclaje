@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AsignacionCamionController;
 use App\Http\Controllers\RutaController;
 use App\Http\Controllers\RutaCoordenadaController;
 use App\Http\Controllers\CamionController;
@@ -24,3 +25,4 @@ Route::apiResource('rutas', RutaController::class);
 Route::apiResource('ruta-coordenadas', RutaCoordenadaController::class);
 Route::apiResource('zonas', ZonaController::class);
 Route::apiResource('camiones', CamionController::class);
+Route::apiResource('asig-camion', AsignacionCamionController::class);

@@ -445,6 +445,24 @@ input:focus, select:focus {
   cursor:pointer;
 }
 
+.btn-camion{
+  background:#1a9e35;
+  border:none;
+  padding:6px 10px;
+  color:white;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.btn-ruta{
+  background:#15189a;
+  border:none;
+  padding:6px 10px;
+  color:white;
+  border-radius:5px;
+  cursor:pointer;
+}
+
 .btn-editar:hover{
   background:#d4ac0d;
 }
