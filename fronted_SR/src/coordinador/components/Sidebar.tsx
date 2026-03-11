@@ -5,6 +5,9 @@ interface Props {
 }
 
 function Sidebar({ open }: Props) {
+
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -51,6 +54,12 @@ function Sidebar({ open }: Props) {
         </li>
 
         <li className="sidebar-divider-coord"></li>
+
+        <li>
+          <NavLink to={`/coord/perfil/${user?.id}`}>
+            <i className="bi bi-person-circle"></i> Perfil
+          </NavLink>
+        </li>
 
         <li>
           <button onClick={handleLogout} className="sidebar-logout-coord">

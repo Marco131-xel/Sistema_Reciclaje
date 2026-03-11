@@ -16,6 +16,7 @@ import Reportes from "../coordinador/pages/Reportes";
 import Rutas from "../coordinador/pages/Rutas";
 import CreateRuta from "../coordinador/pages/ruta/create"
 import VerRuta from "../coordinador/pages/ruta/show"
+import Perfil from "../coordinador/pages/Perfil";
 
 
 export const CoordRoutes = () => (
@@ -25,6 +26,7 @@ export const CoordRoutes = () => (
         </PrivateRoute>
     }>
         <Route index element={<InicioCoord />} />
+        <Route path="perfil/:id" element={<Perfil />} />
         <Route path="rutas" element={<Rutas />} />
         <Route path="rutas/crear" element={<CreateRuta />} />
         <Route path="rutas/ver/:id" element={<VerRuta />} />
