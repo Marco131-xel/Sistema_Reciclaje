@@ -539,6 +539,14 @@ input:focus, select:focus {
   background:#c0392b;
 }
 
+.btn-camion:hover{
+  background: #3d9e50;
+}
+
+.btn-ruta:hover{
+  background: #3537b4;
+}
+
 /* ===== MODAL OVERLAY ===== */
 .modal-overlay{
   position: fixed;
@@ -716,4 +724,25 @@ input:focus, select:focus {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.estado-normal{
+  color:#2e7d32;
+  font-weight:600;
+}
+
+.estado-media{
+  color:#e6a700;
+  font-weight:600;
+}
+
+.estado-alta{
+  color:#d32f2f;
+  font-weight:600;
+}
+
+.estado-normal i,
+.estado-media i,
+.estado-alta i{
+  margin-right:6px;
 }

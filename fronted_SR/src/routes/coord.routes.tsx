@@ -11,11 +11,16 @@ import AsigCamion from "../coordinador/pages/camion/assign";
 import EditAsigCam from "../coordinador/pages/camion/ediAsig";
 // incidencias
 import Incidencias from "../coordinador/pages/Incidencias";
+// monitoreo
 import Monitoreo from "../coordinador/pages/Monitoreo";
+import CrearBasura from "../coordinador/pages/monitoreo/createBasura";
+// reportes
 import Reportes from "../coordinador/pages/Reportes";
+// rutas
 import Rutas from "../coordinador/pages/Rutas";
-import CreateRuta from "../coordinador/pages/ruta/create"
-import VerRuta from "../coordinador/pages/ruta/show"
+import CreateRuta from "../coordinador/pages/ruta/create";
+import VerRuta from "../coordinador/pages/ruta/show";
+// perfil
 import Perfil from "../coordinador/pages/Perfil";
 
 
@@ -36,6 +41,7 @@ export const CoordRoutes = () => (
         <Route path="camiones/editAsig/:id" element={<EditAsigCam />} />
         <Route path="camiones/asignar" element={<AsigCamion />} />
         <Route path="monitoreo" element={<Monitoreo />} />
+        <Route path="monitoreo/crearBasura" element={<CrearBasura />} />
         <Route path="incidencias" element={<Incidencias />} />
         <Route path="reportes" element={<Reportes />} />
     </Route>

@@ -18,7 +18,7 @@ class GeneracionBasura extends Model {
     ];
 
     public function ruta() {
-        return $this->belongsTo(Ruta::class,'id_ruta');
+        return $this->belongsTo(Ruta::class, 'id_ruta', 'id_ruta');
     }
 
     public function puntos() {

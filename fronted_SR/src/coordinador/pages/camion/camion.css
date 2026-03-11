@@ -216,3 +216,151 @@
 .editcam-btn-cancel:hover {
   background: #b5b5b5;
 }
+
+/* ===== CONTENEDOR GENERAL ===== */
+
+.basura-crear-page{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  padding:40px 20px;
+}
+
+/* ===== TARJETA ===== */
+
+.basura-crear-container{
+  background:#051F20;
+  padding:35px;
+  border-radius:14px;
+  width:650px;
+  max-width:95%;
+  box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* ===== TITULO ===== */
+
+.basura-crear-title{
+  color:white;
+  margin-bottom:25px;
+  font-size:28px;
+  font-weight:bold;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* ===== FORM GRID ===== */
+
+.basura-crear-form-group{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+/* ===== GRUPOS ===== */
+
+.basura-crear-group{
+  display:flex;
+  flex-direction:column;
+}
+
+.basura-crear-group label{
+  color:white;
+  font-weight:600;
+  margin-bottom:6px;
+  font-size:14px;
+}
+
+/* ===== INPUTS ===== */
+
+.basura-crear-input,
+.basura-crear-select{
+  width:100%;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  font-size:14px;
+  box-sizing:border-box;
+}
+
+.basura-crear-input:focus,
+.basura-crear-select:focus{
+  outline:none;
+  border:1px solid #8CB79B;
+  box-shadow:0 0 0 2px rgba(140,183,155,0.2);
+}
+
+/* ===== CAMPOS QUE OCUPAN TODA LA FILA ===== */
+
+.full-width{
+  grid-column:span 2;
+}
+
+/* ===== BOTONES ===== */
+
+.basura-crear-buttons{
+  grid-column:span 2;
+  display:flex;
+  justify-content:space-between;
+  margin-top:20px;
+}
+
+/* ===== BOTON GUARDAR ===== */
+
+.basura-crear-btn-guardar{
+  background:#8CB79B;
+  border:none;
+  padding:10px 20px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:bold;
+  color:#051F20;
+  width:60%;
+  transition:0.2s;
+}
+
+.basura-crear-btn-guardar:hover{
+  background:#2f7161;
+  color:white;
+}
+
+/* ===== BOTON CANCELAR ===== */
+
+.basura-crear-btn-cancelar{
+  background:#e74c3c;
+  border:none;
+  padding:10px 20px;
+  border-radius:6px;
+  cursor:pointer;
+  color:white;
+  width:35%;
+  transition:0.2s;
+}
+
+.basura-crear-btn-cancelar:hover{
+  background:#c0392b;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width:700px){
+
+  .basura-crear-form-group{
+    grid-template-columns:1fr;
+  }
+
+  .full-width{
+    grid-column:span 1;
+  }
+
+  .basura-crear-buttons{
+    flex-direction:column;
+    gap:10px;
+  }
+
+  .basura-crear-btn-guardar,
+  .basura-crear-btn-cancelar{
+    width:100%;
+  }
+
+}
