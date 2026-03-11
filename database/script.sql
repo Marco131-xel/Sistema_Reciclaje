@@ -108,3 +108,68 @@ CREATE TABLE asignacion_camion (
         ON DELETE CASCADE
         ON UPDATE CASCADE
 ) ENGINE=InnoDB;
+
+-- generacion_basura
+CREATE TABLE generacion_basura (
+    id_generacion INT AUTO_INCREMENT PRIMARY KEY,
+    cantidad_puntos INT,
+    volumen_estimado DECIMAL(10,2),
+    total_estimado DECIMAL(10,2),
+    dia_semana VARCHAR(15),
+    historial TEXT,
+    id_ruta INT NOT NULL,
+    CONSTRAINT fk_generacion_ruta
+        FOREIGN KEY (id_ruta)
+        REFERENCES ruta(id_ruta)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+-- punto_recoleccion
+CREATE TABLE punto_recoleccion (
+    id_punto INT AUTO_INCREMENT PRIMARY KEY,
+    latitud DECIMAL(10,6),
+    longitud DECIMAL(10,6),
+    volumen_estimado DECIMAL(10,2),
+    id_generacion INT NOT NULL,
+    CONSTRAINT fk_punto_generacion
+        FOREIGN KEY (id_generacion)
+        REFERENCES generacion_basura(id_generacion)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+-- recoleccion
+CREATE TABLE recoleccion (
+    id_recoleccion INT AUTO_INCREMENT PRIMARY KEY,
+    hora_inicio TIME,
+    hora_fin TIME,
+    basura_recolectada DECIMAL(10,2),
+    observaciones TEXT,
+    estado VARCHAR(30),
+    id_ruta INT NOT NULL,
+    id_camion INT NOT NULL,
+    CONSTRAINT fk_recoleccion_ruta
+        FOREIGN KEY (id_ruta)
+        REFERENCES ruta(id_ruta)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    CONSTRAINT fk_recoleccion_camion
+        FOREIGN KEY (id_camion)
+        REFERENCES camion(id_camion)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+-- incidencia
+CREATE TABLE incidencia (
+    id_incidencia INT AUTO_INCREMENT PRIMARY KEY,
+    descripcion TEXT,
+    fecha DATETIME,
+    id_recoleccion INT NOT NULL,
+    CONSTRAINT fk_incidencia_recoleccion
+        FOREIGN KEY (id_recoleccion)
+        REFERENCES recoleccion(id_recoleccion)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
