@@ -1,0 +1,132 @@
+/* ---- Layout general ------ */
+.ope-layout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ----- HEADER ------ */
+.ope-header {
+  background: #051F20;
+  height: 60px;
+  color: white;
+  box-shadow: 0 3px 10px rgba(5,31,32,.3);
+  flex-shrink: 0;
+}
+
+.navbar-brand:hover {
+  color: #2f7161;
+  text-shadow: 1px 1px 5px rgba(47, 113, 97, 0.7);
+  transform: scale(1.05);
+}
+
+.btn-menu-ope {
+  background: transparent;
+  border: none;
+  color: #8CB79B;
+  font-size: 1.4rem;
+}
+
+.btn-menu-ope:hover {
+  color: #2f7161;
+}
+
+/* ------ SIDEBAR ------ */
+.ope-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.ope-sidebar {
+  width: 230px;
+  background: #051F20;
+  color: white;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  overflow: auto;
+  flex-shrink: 0;
+}
+
+.ope-sidebar.open {
+  transform: translateX(0);
+}
+
+.ope-sidebar:not(.open) {
+  width: 0;
+  overflow: hidden;
+}
+
+.sidebar-menu-ope {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu-ope li a {
+  display: block;
+  padding: 14px 20px;
+  color: white;
+  text-decoration: none;
+  border-left: 4px solid transparent;
+  transition: 0.3s;
+}
+
+.sidebar-menu-ope li a:hover {
+  background: #8CB79B;
+  color: black;
+  border-left: 4px solid #051F20;
+}
+
+/* Divider para separar logout */
+.sidebar-divider-ope {
+  height: 1px;
+  background: #333;
+  margin: 10px 0;
+}
+
+/* boton cerrar sesion dentro del sidebar */
+.sidebar-logout-ope {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 14px 20px;
+  color: white;
+  text-align: left;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+  border-left: 4px solid transparent;
+}
+
+.sidebar-logout-ope:hover {
+  background: #e74c3c;
+  color: white;
+  border-left: 4px solid black;
+}
+
+/* CONTENIDO */
+.ope-content {
+  flex: 1;
+  padding: 25px;
+  background: #f5f6fa;
+  overflow-y: auto;
+}
+
+/* FOOTER */
+.ope-footer {
+  background: #051F20;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  flex-shrink: 0;
+}
+
+/* usuario */
+.ope-user {
+  color: #8CB79B;
+  font-weight: bold;
+}

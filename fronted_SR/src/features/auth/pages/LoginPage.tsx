@@ -29,6 +29,8 @@ const LoginPage: React.FC = () => {
         navigate("/coord");
       } else if (role === "ciudadano") {
         navigate("/ciudadano");
+      } else if (role === "operador_punto_verde") {
+        navigate("/ope");
       } else {
         navigate("/dashboard");
       }
