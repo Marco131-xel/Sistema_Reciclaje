@@ -9,7 +9,7 @@ class PuntoRecoleccionController extends Controller {
 
     // mostar puntos de recoleccion
     public function index() {
-        $puntos = PuntoRecoleccion::with('generacion')->get();
+        $puntos = PuntoRecoleccion::with('generacion.ruta')->get();
         return response()->json($puntos);
     }
 

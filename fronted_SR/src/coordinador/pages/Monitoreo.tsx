@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import api from "../../services/api";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import type { Generar_Basura } from "../types/Basura";
+import type { Generar_Basura, Punto_Recoleccion } from "../types/Basura";
 
 function Monitoreo() {
   const [generar, setGenerar] = useState<Generar_Basura[]>([]);
+  const [punto, setPunto] = useState<Punto_Recoleccion | null>(null);
 
   const [modalAbierto, setModalAbierto] = useState(false);
   const [tipoModal, setTipoModal] = useState<"ruta" | null>(null);
@@ -22,8 +23,19 @@ function Monitoreo() {
     }
   }
 
+  // funcion para obtener puntos de recoleccion
+  const obtenerPuntos = async () => {
+    try {
+      const res = await api.get("/punto-recoleccion");
+      setPunto(res.data);
+    } catch (error) {
+      console.error("Error cargando puntos de recoleccion", error);
+    }
+  }
+
   useEffect(() => {
     obtenerGeneracion();
+    obtenerPuntos();
   }, []);
 
   const verRuta = (ruta:any) => {

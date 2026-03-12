@@ -15,7 +15,7 @@ export interface Punto_Recoleccion {
     latitud: number;
     longitud: number;
     volumen_estimado: number;
-    id_generacion: Generar_Basura;
+    generacion: Generar_Basura;
 }
 
 export interface Recoleccion {
