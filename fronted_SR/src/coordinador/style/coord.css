@@ -343,6 +343,15 @@ input:focus, select:focus {
   overflow: hidden;
 }
 
+.map-todo {
+  background: #f0f4f0;
+  border: 1.5px dashed #c5d9c8;
+  border-radius: 12px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
 .map-overlay-grid {
   position: absolute;
   inset: 0;

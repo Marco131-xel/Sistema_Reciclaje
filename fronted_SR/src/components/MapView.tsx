@@ -7,11 +7,13 @@ import MarkersPuntos from "./MarkersPuntos";
 import MapClick from "./MapClick";
 import MapCenter from "./MapCenter";
 
+import type { Punto_Recoleccion } from "../coordinador/types/Basura";
+
 type Props = {
   inicio?: [number, number];
   fin?: [number, number];
 
-  puntos?: [number, number][];
+  puntos?: Punto_Recoleccion[];
   iconPuntos?: Icon;
 
   onMapClick: (lat: number, lng: number) => void;
@@ -19,7 +21,11 @@ type Props = {
 
 function MapView({ inicio, fin, puntos = [], iconPuntos, onMapClick }: Props) {
 
-  const center = inicio ?? puntos[0] ?? [14.84444, -91.50139];
+  const center =
+    inicio ??
+    (puntos.length > 0
+      ? [puntos[0].latitud, puntos[0].longitud]
+      : [14.84444, -91.50139]);
 
   return (
     <MapContainer

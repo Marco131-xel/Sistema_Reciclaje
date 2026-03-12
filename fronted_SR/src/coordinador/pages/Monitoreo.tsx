@@ -117,11 +117,6 @@ function Monitoreo() {
     };
   };
 
-  const puntosMapa: [number, number][] = punto.map((p) => [
-    p.latitud,
-    p.longitud
-  ]);
-
   return (
     <div className="camiones-container">
 
@@ -188,14 +183,14 @@ function Monitoreo() {
       <br />
 
       <div className="camiones-header">
-        <h2>Mapa de Puntos de Recoleccion</h2>
+        <h2><i className="bi bi-geo-alt-fill"></i> Mapa de Puntos de Recoleccion</h2>
       </div>
 
       <div className="tabla-container">
-        <div className="map-box">
+        <div className="map-todo">
           <div className="map-overlay-grid">
             <MapView 
-            puntos={puntosMapa}
+            puntos={punto}
             iconPuntos={IconTrash}
             onMapClick={() => {}}
             />
