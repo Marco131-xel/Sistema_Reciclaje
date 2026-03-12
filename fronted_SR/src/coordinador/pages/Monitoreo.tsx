@@ -3,10 +3,12 @@ import api from "../../services/api";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import type { Generar_Basura, Punto_Recoleccion } from "../types/Basura";
+import MapView from "../../components/MapView";
+import { IconTrash } from "../../components/IconTrash";
 
 function Monitoreo() {
   const [generar, setGenerar] = useState<Generar_Basura[]>([]);
-  const [punto, setPunto] = useState<Punto_Recoleccion | null>(null);
+  const [punto, setPunto] = useState<Punto_Recoleccion[]>([]);
 
   const [modalAbierto, setModalAbierto] = useState(false);
   const [tipoModal, setTipoModal] = useState<"ruta" | null>(null);
@@ -115,6 +117,11 @@ function Monitoreo() {
     };
   };
 
+  const puntosMapa: [number, number][] = punto.map((p) => [
+    p.latitud,
+    p.longitud
+  ]);
+
   return (
     <div className="camiones-container">
 
@@ -176,6 +183,24 @@ function Monitoreo() {
           </tbody>
 
         </table>
+      </div>
+
+      <br />
+
+      <div className="camiones-header">
+        <h2>Mapa de Puntos de Recoleccion</h2>
+      </div>
+
+      <div className="tabla-container">
+        <div className="map-box">
+          <div className="map-overlay-grid">
+            <MapView 
+            puntos={puntosMapa}
+            iconPuntos={IconTrash}
+            onMapClick={() => {}}
+            />
+          </div>
+        </div>
       </div>
       {modalAbierto && (
         <div className="modal-overlay">

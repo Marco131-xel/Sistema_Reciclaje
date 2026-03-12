@@ -1,18 +1,25 @@
 import { MapContainer, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { Icon } from "leaflet";
+
 import Markers from "./Markers";
+import MarkersPuntos from "./MarkersPuntos";
 import MapClick from "./MapClick";
 import MapCenter from "./MapCenter";
 
 type Props = {
   inicio?: [number, number];
   fin?: [number, number];
+
+  puntos?: [number, number][];
+  iconPuntos?: Icon;
+
   onMapClick: (lat: number, lng: number) => void;
 }
 
-function MapView({ inicio, fin, onMapClick}: Props) {
+function MapView({ inicio, fin, puntos = [], iconPuntos, onMapClick }: Props) {
 
-  const center = inicio ?? [14.84444, -91.50139];
+  const center = inicio ?? puntos[0] ?? [14.84444, -91.50139];
 
   return (
     <MapContainer
@@ -23,13 +30,19 @@ function MapView({ inicio, fin, onMapClick}: Props) {
     >
 
       <TileLayer
-        attribution='&copy; OpenStreetMap contributors'
+        attribution="&copy; OpenStreetMap contributors"
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
       <MapCenter position={inicio} />
 
+      {/* MARCADORES DE RUTA */}
       <Markers inicio={inicio} fin={fin} />
+
+      {/* MARCADORES DE PUNTOS */}
+      {puntos.length > 0 && iconPuntos && (
+        <MarkersPuntos puntos={puntos} icon={iconPuntos} />
+      )}
 
       <MapClick onMapClick={onMapClick} />
 
