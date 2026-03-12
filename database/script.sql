@@ -147,19 +147,11 @@ CREATE TABLE recoleccion (
     basura_recolectada DECIMAL(10,2),
     observaciones TEXT,
     estado VARCHAR(30),
-    id_ruta INT NOT NULL,
-    id_camion INT NOT NULL,
-    CONSTRAINT fk_recoleccion_ruta
-        FOREIGN KEY (id_ruta)
-        REFERENCES ruta(id_ruta)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE,
-    CONSTRAINT fk_recoleccion_camion
-        FOREIGN KEY (id_camion)
-        REFERENCES camion(id_camion)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
-) ENGINE=InnoDB;
+    id_asignacion INT NOT NULL,
+    CONSTRAINT fk_recoleccion_asignacion
+        FOREIGN KEY (id_asignacion)
+        REFERENCES asignacion_camion(id_asignacion)
+);
 
 -- incidencia
 CREATE TABLE incidencia (

@@ -14,16 +14,11 @@ class Recoleccion extends Model {
         'basura_recolectada',
         'observaciones',
         'estado',
-        'id_ruta',
-        'id_camion'
+        'id_asignacion'
     ];
 
-    public function ruta() {
-        return $this->belongsTo(Ruta::class,'id_ruta');
-    }
-
-    public function camion() {
-        return $this->belongsTo(Camion::class,'id_camion');
+    public function asignacion() {
+        return $this->belongsTo(AsignacionCamion::class,'id_asignacion');
     }
 
     public function incidencias() {

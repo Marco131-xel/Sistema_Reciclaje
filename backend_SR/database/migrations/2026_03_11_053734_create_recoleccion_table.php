@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
@@ -20,18 +21,11 @@ return new class extends Migration {
             $table->text('observaciones')->nullable();
             $table->string('estado',30)->nullable();
 
-            $table->unsignedBigInteger('id_ruta');
-            $table->unsignedBigInteger('id_camion');
+            $table->unsignedBigInteger('id_asignacion');
 
-            $table->foreign('id_ruta')
-                ->references('id_ruta')
-                ->on('ruta')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
-
-            $table->foreign('id_camion')
-                ->references('id_camion')
-                ->on('camion')
+            $table->foreign('id_asignacion')
+                ->references('id_asignacion')
+                ->on('asignacion_camion')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 

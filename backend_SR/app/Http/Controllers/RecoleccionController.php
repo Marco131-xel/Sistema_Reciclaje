@@ -7,27 +7,34 @@ use Illuminate\Http\Request;
 
 class RecoleccionController extends Controller {
 
-    // mostrar recolecciones
+    // listar recolecciones
     public function index() {
-        $recolecciones = Recoleccion::with(['ruta','camion','incidencias'])->get();
+        $recolecciones = Recoleccion::with([
+            'asignacion.camion',
+            'asignacion.ruta',
+            'incidencias'
+        ])->get();
+
         return response()->json($recolecciones);
     }
 
-    // mostrar recoleccion 
+    // mostrar una recoleccion
     public function show($id) {
-        $recoleccion = Recoleccion::with(['ruta','camion','incidencias'])
-                        ->findOrFail($id);
+        $recoleccion = Recoleccion::with([
+            'asignacion.camion',
+            'asignacion.ruta',
+            'incidencias'
+        ])->findOrFail($id);
 
         return response()->json($recoleccion);
     }
 
-    // crear recoleccion
+    // crear
     public function store(Request $request) {
         $request->validate([
             'hora_inicio' => 'required',
             'estado' => 'required|string',
-            'id_ruta' => 'required|exists:ruta,id_ruta',
-            'id_camion' => 'required|exists:camion,id_camion'
+            'id_asignacion' => 'required|exists:asignacion_camion,id_asignacion'
         ]);
 
         $recoleccion = Recoleccion::create($request->all());
@@ -35,17 +42,19 @@ class RecoleccionController extends Controller {
         return response()->json($recoleccion,201);
     }
 
-    // actualizar recoleccion
+    // actualizar
     public function update(Request $request,$id) {
         $recoleccion = Recoleccion::findOrFail($id);
+
         $recoleccion->update($request->all());
 
         return response()->json($recoleccion);
     }
 
-    // eliminar recoleccion
+    // eliminar
     public function destroy($id) {
         $recoleccion = Recoleccion::findOrFail($id);
+
         $recoleccion->delete();
 
         return response()->json([
