@@ -155,7 +155,7 @@
 /* ----------- ROOT ----------- */
 .cc-root {
   min-height: 100vh;
-  background: white;
+  background: #8CB79B;;
   padding: 40px 30px;
   color: #e6f5ee;
   font-family: "Segoe UI", sans-serif;
@@ -238,6 +238,70 @@
 
 .cc-btn:hover {
   background: #3c8c79;
+}
+
+/* ----------- BOTONES DE ACCION ----------- */
+
+.cc-actions{
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cc-btn2{
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background: #2f7161;
+  color: white;
+
+  border: none;
+  border-radius: 8px;
+
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: all .25s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.cc-btn2 i{
+  font-size: 0.9rem;
+}
+
+.cc-btn2:hover{
+  background:#3c8c79;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.cc-btn2:active{
+  transform: scale(.96);
+}
+
+/* BOTON ROJO */
+
+.cc-btn2.danger{
+  background:#e74c3c;
+}
+
+.cc-btn2.danger:hover{
+  background:#c0392b;
+}
+
+.cc-search-input{
+  width: 160px;
+}
+
+.cc-btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 /* ----------- CARD INFO PUNTO ----------- */

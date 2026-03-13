@@ -143,11 +143,21 @@ function Control() {
                   <span className="cc-info-key">Capacidad total</span>
                   <span className="cc-info-val">{puntoSeleccionado.capacidad} kg</span>
                 </div>
+                <div className="cc-actions">
+                  <button className="cc-btn2" 
+                  onClick={() => navigate(`crear/${puntoSeleccionado.id_punto_verde}`)}
+                  title="Crear Contenedor">
+                    +<i className="bi bi-trash2"></i>
+                  </button>
+                  <button className="cc-btn2" 
+                  onClick={() => navigate(`add/${puntoSeleccionado.id_punto_verde}`)}
+                  title="Agregar a Contenedor">
+                    +<i className="bi bi-box-seam"></i>
+                  </button>
+                </div>
               </div>
 
-              <button className="cc-btn" onClick={() => navigate(`add/${puntoSeleccionado.id_punto_verde}`)}>
-                +<i className="bi bi-trash2"></i>
-              </button>
+
             </div>
 
             {/* Contenedores */}

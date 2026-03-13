@@ -158,6 +158,50 @@
   font-weight:bold;
 }
 
+/* -------- INFO CAPACIDAD PUNTO VERDE -------- */
+
+.control-capacidad-info{
+  background:#082a2b;
+  border:1px solid #2f7161;
+  border-left:5px solid #8CB79B;
+
+  border-radius:8px;
+  padding:14px 16px;
+  margin-bottom:20px;
+
+  color:#e8f6f3;
+  font-size:14px;
+}
+
+/* TITULO */
+
+.control-capacidad-info p:first-child{
+  font-weight:600;
+  color:#8CB79B;
+  margin-bottom:6px;
+}
+
+/* TEXTOS */
+
+.control-capacidad-info p{
+  margin:4px 0;
+  display:flex;
+  justify-content:space-between;
+}
+
+/* NUMEROS */
+
+.control-capacidad-info b{
+  font-weight:600;
+}
+
+/* CAPACIDAD DISPONIBLE */
+
+.control-capacidad-info b:last-child{
+  color:#1abc9c;
+  font-weight:bold;
+}
+
 /* FORMULARIO */
 
 .control-crear-form{
