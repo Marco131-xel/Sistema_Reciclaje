@@ -4,9 +4,12 @@ use App\Http\Controllers\AsignacionCamionController;
 use App\Http\Controllers\RutaController;
 use App\Http\Controllers\RutaCoordenadaController;
 use App\Http\Controllers\CamionController;
+use App\Http\Controllers\ContenedorController;
 use App\Http\Controllers\GeneracionBasuraController;
 use App\Http\Controllers\IncidenciaController;
+use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\PuntoRecoleccionController;
+use App\Http\Controllers\PuntoVerdeController;
 use App\Http\Controllers\RecoleccionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -36,3 +39,8 @@ Route::apiResource('generar-basura', GeneracionBasuraController::class);
 Route::apiResource('punto-recoleccion', PuntoRecoleccionController::class);
 Route::apiResource('recoleccion', RecoleccionController::class);
 Route::apiResource('incidencia', IncidenciaController::class);
+
+// puntos verdes, material y contenedor
+Route::apiResource('punto-verde', PuntoVerdeController::class);
+Route::apiResource('material', MaterialController::class);
+Route::apiResource('contenedor', ContenedorController::class);

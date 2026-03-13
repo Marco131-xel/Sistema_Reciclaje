@@ -141,17 +141,19 @@ CREATE TABLE punto_recoleccion (
 
 -- recoleccion
 CREATE TABLE recoleccion (
-    id_recoleccion INT AUTO_INCREMENT PRIMARY KEY,
+    id_recoleccion BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     hora_inicio TIME,
     hora_fin TIME,
     basura_recolectada DECIMAL(10,2),
     observaciones TEXT,
     estado VARCHAR(30),
-    id_asignacion INT NOT NULL,
+    id_asignacion BIGINT UNSIGNED NOT NULL,
     CONSTRAINT fk_recoleccion_asignacion
         FOREIGN KEY (id_asignacion)
         REFERENCES asignacion_camion(id_asignacion)
-);
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
 
 -- incidencia
 CREATE TABLE incidencia (
@@ -162,6 +164,43 @@ CREATE TABLE incidencia (
     CONSTRAINT fk_incidencia_recoleccion
         FOREIGN KEY (id_recoleccion)
         REFERENCES recoleccion(id_recoleccion)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+-- punto_verde
+CREATE TABLE punto_verde (
+    id_punto_verde INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100),
+    direccion VARCHAR(200),
+    latitud DECIMAL(10,6),
+    longitud DECIMAL(10,6),
+    capacidad DECIMAL(10,2),
+    horario VARCHAR(50),
+    encargado VARCHAR(100)
+) ENGINE=InnoDB;
+
+--material
+CREATE TABLE material (
+    id_material INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL UNIQUE
+) ENGINE=InnoDB;
+
+-- contenedor
+CREATE TABLE contenedor (
+    id_contenedor INT AUTO_INCREMENT PRIMARY KEY,
+    capacidad DECIMAL(10,2),
+    porcentaje DECIMAL(5,2),
+    id_punto_verde INT NOT NULL,
+    id_material INT NOT NULL,
+    CONSTRAINT fk_contenedor_punto_verde
+        FOREIGN KEY (id_punto_verde)
+        REFERENCES punto_verde(id_punto_verde)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    CONSTRAINT fk_contenedor_material
+        FOREIGN KEY (id_material)
+        REFERENCES material(id_material)
         ON DELETE CASCADE
         ON UPDATE CASCADE
 ) ENGINE=InnoDB;
