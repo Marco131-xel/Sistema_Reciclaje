@@ -7,6 +7,7 @@ import InicioOpe from "../operador/pages/InicioOpe"
 import Perfil from "../operador/pages/Perfil"
 // registro
 import Registro from "../operador/pages/Registro"
+import CrearPuntos from "../operador/pages/registro/create"
 // control
 import Control from "../operador/pages/Control"
 // solicitudes
@@ -24,6 +25,7 @@ export const OpeRoutes = () => (
         <Route index element={<InicioOpe />} />
         <Route path="perfil/:id" element={<Perfil />} />
         <Route path="registro" element={<Registro />} />
+        <Route path="registro/crear" element={<CrearPuntos />} />
         <Route path="control" element={<Control />} />
         <Route path="solicitud" element={<Solicitud />} />
         <Route path="atencion" element={<Atencion />} />

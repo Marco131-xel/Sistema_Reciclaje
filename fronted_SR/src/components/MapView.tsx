@@ -4,10 +4,12 @@ import { Icon } from "leaflet";
 
 import Markers from "./Markers";
 import MarkersPuntos from "./MarkersPuntos";
+import MarkersVerde from "./MarkersVerde";
 import MapClick from "./MapClick";
 import MapCenter from "./MapCenter";
 
 import type { Punto_Recoleccion } from "../coordinador/types/Basura";
+import type { Verde } from "../operador/types/PuntoVerde";
 
 type Props = {
   inicio?: [number, number];
@@ -16,10 +18,13 @@ type Props = {
   puntos?: Punto_Recoleccion[];
   iconPuntos?: Icon;
 
+  verdes?: Verde[];
+  iconVerde?: Icon;
+
   onMapClick: (lat: number, lng: number) => void;
 }
 
-function MapView({ inicio, fin, puntos = [], iconPuntos, onMapClick }: Props) {
+function MapView({ inicio, fin, puntos = [], iconPuntos, verdes = [], iconVerde, onMapClick }: Props) {
 
   const center =
     inicio ??
@@ -50,6 +55,10 @@ function MapView({ inicio, fin, puntos = [], iconPuntos, onMapClick }: Props) {
         <MarkersPuntos puntos={puntos} icon={iconPuntos} />
       )}
 
+      {/* MARCADORES PARA PUNTOS VERDES */}
+      {verdes.length > 0 && iconVerde && (
+        <MarkersVerde verdes={verdes} icon={iconVerde} />
+      )}
       <MapClick onMapClick={onMapClick} />
 
     </MapContainer>

@@ -130,3 +130,23 @@
   color: #8CB79B;
   font-weight: bold;
 }
+
+/*  ----- VISTA DE CONTENEDOR ---- */
+
+/* --- MAPA ----- */
+.map-cuadro {
+  background: #f0f4f0;
+  border: 1.5px dashed #c5d9c8;
+  border-radius: 12px;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-overlay-grid {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(140,183,155,0.08) 30px, rgba(140,183,155,0.08) 31px),
+    repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(140,183,155,0.08) 30px, rgba(140,183,155,0.08) 31px);
+}

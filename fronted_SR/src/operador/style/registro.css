@@ -1,0 +1,131 @@
+/* camiones */
+.operador-container{
+  background:#051F20;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.operador-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+}
+
+.operador-header h2{
+  color:white;
+}
+
+.operador-btn-crear{
+  background:#8CB79B;
+  border:none;
+  padding:10px 16px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.operador-btn-crear:hover{
+  background:#2f7161;
+  color:white;
+}
+
+/* TABLA */
+.operador-tabla-container{
+  overflow-x:auto;
+}
+
+.tabla-operador{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.tabla-operador thead{
+  background:#2f7161;
+  color:white;
+}
+
+.tabla-operador th,
+.tabla-operador td{
+  padding:12px;
+  text-align:center;
+  border-bottom:1px solid #051F20;
+}
+
+.tabla-operador tbody td{
+  background-color:white;
+}
+
+/* HOVER FILA */
+.tabla-operador tbody tr:hover{
+  background:#8CB79B;
+}
+
+/* BOTONES */
+
+.acciones-ope{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+}
+
+.btn-ver{
+  background:#3498db;
+  border:none;
+  padding:6px 10px;
+  color:white;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.btn-editar{
+  background:#f1c40f;
+  border:none;
+  padding:6px 10px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.btn-eliminar{
+  background:#e74c3c;
+  border:none;
+  padding:6px 10px;
+  color:white;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.btn-otro1{
+  background:#1a9e35;
+  border:none;
+  padding:6px 10px;
+  color:white;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.btn-otro2{
+  background:#15189a;
+  border:none;
+  padding:6px 10px;
+  color:white;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.btn-editar:hover{
+  background:#d4ac0d;
+}
+
+.btn-eliminar:hover{
+  background:#c0392b;
+}
+
+.btn-otro1:hover{
+  background: #3d9e50;
+}
+
+.btn-otro2:hover{
+  background: #3537b4;
+}
