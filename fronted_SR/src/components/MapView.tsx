@@ -21,10 +21,20 @@ type Props = {
   verdes?: Verde[];
   iconVerde?: Icon;
 
+  onVerMas: (verde: Verde) => void
+
   onMapClick: (lat: number, lng: number) => void;
 }
 
-function MapView({ inicio, fin, puntos = [], iconPuntos, verdes = [], iconVerde, onMapClick }: Props) {
+function MapView({ 
+  inicio, 
+  fin, 
+  puntos = [], 
+  iconPuntos, 
+  verdes = [], 
+  iconVerde,
+  onVerMas, 
+  onMapClick }: Props) {
 
   const center =
     inicio ??
@@ -57,7 +67,7 @@ function MapView({ inicio, fin, puntos = [], iconPuntos, verdes = [], iconVerde,
 
       {/* MARCADORES PARA PUNTOS VERDES */}
       {verdes.length > 0 && iconVerde && (
-        <MarkersVerde verdes={verdes} icon={iconVerde} />
+        <MarkersVerde verdes={verdes} icon={iconVerde} onVerMas={onVerMas} />
       )}
       <MapClick onMapClick={onMapClick} />
 

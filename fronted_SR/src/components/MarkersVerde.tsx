@@ -5,9 +5,10 @@ import type { Verde } from "../operador/types/PuntoVerde";
 type Props = {
     verdes: Verde[]
     icon: Icon
+    onVerMas: (verde: Verde) => void
 }
 
-function MarkersVerde({ verdes, icon}: Props) {
+function MarkersVerde({ verdes, icon, onVerMas}: Props) {
     return (
         <>
         {verdes.map((v) => (
@@ -25,7 +26,10 @@ function MarkersVerde({ verdes, icon}: Props) {
                     Nombre: {v.nombre} <br />
                     Lat: {v.latitud} <br />
                     Lng: {v.longitud} <br />
-                    Capacidad: {v.capacidad}
+                    Capacidad: {v.capacidad} <br /> <br />
+                    <button onClick={() => onVerMas(v)} className="btn-otro1">
+                        Ver Mas
+                    </button>
                 </Popup>
             </Marker>
         ))}
