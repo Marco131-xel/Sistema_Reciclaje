@@ -79,7 +79,10 @@ function Add() {
             Swal.fire({
             title: "Capacidad excedida",
             text: `Solo quedan ${disponible.toFixed(2)} kg disponibles`,
-            icon: "warning"
+            icon: "warning",
+            confirmButtonColor: "#bae11c",
+            background: "051F20",
+            color: "#000000"
             })
             return
         }
@@ -87,15 +90,18 @@ function Add() {
         try {
             setLoading(true)
 
-await api.post("/entrega", {
-    cantidad: Number(form.cantidad),
-    codigo_ciudadano: form.codigo_ciudadano,
-    id_contenedor: Number(form.id_contenedor),
-    fecha_hora: new Date().toISOString().slice(0,19).replace("T"," ")
-})
+            await api.post("/entrega", {
+                cantidad: Number(form.cantidad),
+                codigo_ciudadano: form.codigo_ciudadano,
+                id_contenedor: Number(form.id_contenedor),
+                fecha_hora: new Date().toISOString().slice(0,19).replace("T"," ")
+            })
             await Swal.fire({
             title: "Entrega creada",
-            icon: "success"
+            icon: "success",
+            confirmButtonColor: "#2d6a4f",
+            background: "#051F20",
+            color: "#fff",
             })
             
             limpiarFormulario()
@@ -105,7 +111,10 @@ await api.post("/entrega", {
             Swal.fire({
             title: "Error",
             text: "No se pudo agregar contenido",
-            icon: "error"
+            icon: "error",
+            confirmButtonColor: "#e74c3c",
+            background: "051F20",
+            color: "#fff"
             })
         } finally {
             setLoading(false)

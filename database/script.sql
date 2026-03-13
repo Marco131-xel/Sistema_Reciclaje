@@ -204,3 +204,81 @@ CREATE TABLE contenedor (
         ON DELETE CASCADE
         ON UPDATE CASCADE
 ) ENGINE=InnoDB;
+
+-- entrega
+CREATE TABLE entrega (
+    id_entrega INT AUTO_INCREMENT PRIMARY KEY,
+    cantidad DECIMAL(10,2),
+    fecha_hora DATETIME,
+    codigo_ciudadano VARCHAR(30),
+    id_contenedor INT NOT NULL,
+    CONSTRAINT fk_entrega_contenedor
+        FOREIGN KEY (id_contenedor)
+        REFERENCES contenedor(id_contenedor)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+-- vaciado_contenedor
+CREATE TABLE vaciado_contenedor (
+    id_vaciado INT AUTO_INCREMENT PRIMARY KEY,
+    fecha DATE,
+    observacion TEXT,
+    id_contenedor INT NOT NULL,
+    CONSTRAINT fk_vaciado_contenedor
+        FOREIGN KEY (id_contenedor)
+        REFERENCES contenedor(id_contenedor)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+-- denuncia
+CREATE TABLE denuncia (
+    id_denuncia INT AUTO_INCREMENT PRIMARY KEY,
+    ubicacion VARCHAR(200),
+    descripcion TEXT,
+    tamanio VARCHAR(50),
+    nombre VARCHAR(100),
+    telefono VARCHAR(20),
+    email VARCHAR(150),
+    fecha DATETIME,
+    estado VARCHAR(30)
+) ENGINE=InnoDB;
+
+-- evidencia_foto
+CREATE TABLE evidencia_foto (
+    id_foto INT AUTO_INCREMENT PRIMARY KEY,
+    url TEXT,
+    id_denuncia INT NOT NULL,
+    CONSTRAINT fk_foto_denuncia
+        FOREIGN KEY (id_denuncia)
+        REFERENCES denuncia(id_denuncia)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+-- cuadrilla
+CREATE TABLE cuadrilla (
+    id_cuadrilla INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100),
+    disponible BOOLEAN DEFAULT 1
+) ENGINE=InnoDB;
+
+-- asignacion_cuadrilla
+CREATE TABLE asignacion_cuadrilla (
+    id_asignacion INT AUTO_INCREMENT PRIMARY KEY,
+    fecha_intervencion DATE,
+    recursos TEXT,
+    id_denuncia INT NOT NULL,
+    id_cuadrilla INT NOT NULL,
+    CONSTRAINT fk_asig_cuadrilla_denuncia
+        FOREIGN KEY (id_denuncia)
+        REFERENCES denuncia(id_denuncia)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    CONSTRAINT fk_asig_cuadrilla_cuadrilla
+        FOREIGN KEY (id_cuadrilla)
+        REFERENCES cuadrilla(id_cuadrilla)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;

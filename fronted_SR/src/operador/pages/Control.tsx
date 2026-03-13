@@ -205,17 +205,17 @@ function Control() {
 
                       <div className="cc-card-stats">
                         <div className="cc-stat">
-                          <span className="cc-stat-key">Porcentaje</span>
+                          <span className="cc-stat-key">Porcentaje </span>
                           <span className="cc-stat-val" style={{ color }}>
                             {pct}%
                           </span>
                         </div>
                         <div className="cc-stat">
-                          <span className="cc-stat-key">Capacidad</span>
+                          <span className="cc-stat-key">Capacidad </span>
                           <span className="cc-stat-val">{c.capacidad} kg</span>
                         </div>
                         <div className="cc-stat">
-                          <span className="cc-stat-key">ID</span>
+                          <span className="cc-stat-key">ID </span>
                           <span className="cc-stat-val">#{c.id_contenedor}</span>
                         </div>
                       </div>
