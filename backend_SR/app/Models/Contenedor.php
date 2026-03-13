@@ -24,4 +24,8 @@ class Contenedor extends Model {
     public function material() {
         return $this->belongsTo(Material::class,'id_material');
     }
+    
+    public function entregas() {
+        return $this->hasMany(Entrega::class,'id_contenedor','id_contenedor');
+    }
 }

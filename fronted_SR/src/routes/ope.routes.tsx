@@ -10,6 +10,7 @@ import Registro from "../operador/pages/Registro"
 import CrearPuntos from "../operador/pages/registro/create"
 // control
 import Control from "../operador/pages/Control"
+import Add from "../operador/pages/control/add"
 // solicitudes
 import Solicitud from "../operador/pages/Solicitud"
 // atencion
@@ -27,6 +28,7 @@ export const OpeRoutes = () => (
         <Route path="registro" element={<Registro />} />
         <Route path="registro/crear" element={<CrearPuntos />} />
         <Route path="control" element={<Control />} />
+        <Route path="control/add/:id" element={<Add />} />
         <Route path="solicitud" element={<Solicitud />} />
         <Route path="atencion" element={<Atencion />} />
     </Route>

@@ -21,7 +21,7 @@ type Props = {
   verdes?: Verde[];
   iconVerde?: Icon;
 
-  onVerMas: (verde: Verde) => void
+  onVerMas?: (verde: Verde) => void
 
   onMapClick: (lat: number, lng: number) => void;
 }

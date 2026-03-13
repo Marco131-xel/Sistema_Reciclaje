@@ -10,7 +10,7 @@ class PuntoVerdeController extends Controller {
     // funcion para mostar los puntos verdes
     public function index() {
         try {
-            $puntos = PuntoVerde::with('contenedores')->get();
+            $puntos = PuntoVerde::with('contenedores.material')->get();
             return response()->json($puntos,200);
         } catch (\Exception $e) {
             return response()->json([

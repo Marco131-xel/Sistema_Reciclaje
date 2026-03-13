@@ -5,7 +5,7 @@ import type { Verde } from "../operador/types/PuntoVerde";
 type Props = {
     verdes: Verde[]
     icon: Icon
-    onVerMas: (verde: Verde) => void
+    onVerMas?: (verde: Verde) => void
 }
 
 function MarkersVerde({ verdes, icon, onVerMas}: Props) {
@@ -27,7 +27,7 @@ function MarkersVerde({ verdes, icon, onVerMas}: Props) {
                     Lat: {v.latitud} <br />
                     Lng: {v.longitud} <br />
                     Capacidad: {v.capacidad} <br /> <br />
-                    <button onClick={() => onVerMas(v)} className="btn-otro1">
+                    <button onClick={() => onVerMas?.(v)} className="btn-otro1">
                         Ver Mas
                     </button>
                 </Popup>

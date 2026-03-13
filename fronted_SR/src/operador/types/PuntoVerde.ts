@@ -7,6 +7,7 @@ export interface Verde {
     capacidad: number;
     horario: string;
     encargado: string;
+    contenedores: Contenedor[]
 }
 
 export interface Material {
@@ -18,6 +19,6 @@ export interface Contenedor {
     id_contenedor: number;
     capacidad: number;
     porcentaje: number;
-    puntoVerde: Verde;
+    id_punto_verde: number;
     material: Material;
 }

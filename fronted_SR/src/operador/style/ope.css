@@ -150,3 +150,250 @@
     repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(140,183,155,0.08) 30px, rgba(140,183,155,0.08) 31px),
     repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(140,183,155,0.08) 30px, rgba(140,183,155,0.08) 31px);
 }
+
+
+/* ----------- ROOT ----------- */
+.cc-root {
+  min-height: 100vh;
+  background: white;
+  padding: 40px 30px;
+  color: #e6f5ee;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ----------- HEADER ----------- */
+.cc-header {
+  max-width: 900px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.cc-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cc-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #2f7161;
+  box-shadow: 0 0 8px #2f7161;
+}
+
+.cc-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: black;
+}
+
+.cc-subtitle {
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: black;
+}
+
+/* ----------- BUSCADOR ----------- */
+.cc-search-bar {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.cc-search-label {
+  font-size: 0.8rem;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cc-search-input {
+  width: 120px;
+  background: #0e2e2f;
+  border: 1px solid #2f7161;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.cc-search-input:focus {
+  outline: none;
+  border-color: #8CB79B;
+}
+
+/* ----------- BOTON ----------- */
+.cc-btn {
+  background: #2f7161;
+  border: none;
+  padding: 8px 20px;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cc-btn:hover {
+  background: #3c8c79;
+}
+
+/* ----------- CARD INFO PUNTO ----------- */
+.cc-info-card {
+  max-width: 900px;
+  margin: auto;
+  background: #0e2e2f;
+  border: 1px solid #2f7161;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.cc-info-nombre {
+  font-size: 1.1rem;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.cc-badge-id {
+  background: #2f7161;
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.cc-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 15px;
+}
+
+.cc-info-key {
+  font-size: 0.75rem;
+  color: #7ea694;
+}
+
+.cc-info-val {
+  font-size: 0.9rem;
+}
+
+/* ----------- TITULO SECCION ----------- */
+.cc-section-title {
+  max-width: 900px;
+  margin: auto;
+  margin-bottom: 15px;
+  font-size: 0.8rem;
+  color: black;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ----------- GRID CONTENEDORES ----------- */
+.cc-grid {
+  max-width: 900px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+  gap: 18px;
+}
+
+/* ----------- CARD CONTENEDOR ----------- */
+.cc-contenedor-card {
+  background: #0e2e2f;
+  border: 1px solid #2f7161;
+  border-radius: 10px;
+  padding: 16px;
+  transition: 0.25s;
+}
+
+.cc-contenedor-card:hover {
+  border-color: #8CB79B;
+  transform: translateY(-2px);
+}
+
+/* ----------- TOP CARD ----------- */
+.cc-card-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cc-material-name {
+  font-size: 0.9rem;
+  color: white;
+}
+
+.cc-status-chip {
+  font-size: 0.7rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ----------- BARRA PROGRESO ----------- */
+.cc-bar-wrap {
+  background: #051F20;
+  height: 8px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.cc-bar-fill {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+/* ----------- STATS ----------- */
+.cc-card-stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cc-stat-key {
+  font-size: 0.65rem;
+  color: #7ea694;
+}
+
+.cc-stat-val {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* ----------- VACIO ----------- */
+.cc-empty {
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+  padding: 40px;
+  border: 1px dashed #051F20;
+  border-radius: 10px;
+  color: #051F20;
+}
+
+/* ----------- SPINNER ----------- */
+.cc-spinner {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #2f7161;
+  border-top-color: #8CB79B;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
